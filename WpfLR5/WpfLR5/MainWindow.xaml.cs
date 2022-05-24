@@ -38,7 +38,7 @@ namespace WpfLR5
 
         private void textBox1_LostFocus(object sender, RoutedEventArgs e)
         {
-            TextBox tb = e.Source as TextBox;
+            TextBox tb = e.Source as  TextBox;
             tb.Foreground = Brushes.White;
             tb.Background = Brushes.Green;
         }

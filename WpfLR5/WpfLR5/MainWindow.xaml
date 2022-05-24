@@ -24,7 +24,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBox x:Name="textBox1" Grid.Row="0" Grid.Column="0"
-                 Margin="5" Text="Data1" MinWidth="120"/>
+                 Margin="5" Text="Data1" MinWidth="120" />
         <TextBox x:Name="textBox2" Grid.Row="0" Grid.Column="1"
                  Margin="5" Text="Data2" MinWidth="120"/>
         <TextBox x:Name="textBox3" Grid.Row="0" Grid.Column="2"

@@ -22,11 +22,17 @@ namespace WpfLR5
     {
         Brush backgr;
         Brush foregr;
+        Brush bordbr;
+        Thickness bordth;
         public MainWindow()
         {
             InitializeComponent();
+            grid1.AddHandler(TextBox.TextChangedEvent,
+                new TextChangedEventHandler(textBox1_TextChanged));
             backgr = textBox1.Background;
-            foregr = textBox2.Foreground;
+            foregr = textBox1.Foreground;
+            bordbr = textBox1.BorderBrush;
+            bordth = textBox1.BorderThickness;
             textBox1.Focus();
         }
 
@@ -60,6 +66,21 @@ namespace WpfLR5
             {
                 TextBox tb = grid1.Children[i] as TextBox;
                 tb.TabIndex = i * (int)Math.Pow(10, i % 3);
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox tb = e.Source as TextBox;
+            if (tb.Text == "")
+            {
+                tb.BorderBrush = Brushes.Red;
+                tb.BorderThickness = new Thickness(1.01);
+            }
+            else
+            {
+                tb.BorderBrush = backgr;
+                tb.BorderThickness = bordth;
             }
         }
     }

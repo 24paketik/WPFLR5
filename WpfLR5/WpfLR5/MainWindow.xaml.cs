@@ -43,6 +43,25 @@ namespace WpfLR5
             tb.Foreground = foregr;
             tb.Background = backgr;
         }
+
+        private void radioButton1_Checked(object sender, RoutedEventArgs e)
+        {
+            foreach (var el in grid1.Children)
+            {
+                TextBox tb = el as TextBox;
+                if (tb != null)
+                    tb.TabIndex = int.MaxValue;
+            }
+        }
+
+        private void radioButton2_Checked(object sender, RoutedEventArgs e)
+        {
+            for (int i =0; i < grid1.Children.Count - 1; i++)
+            {
+                TextBox tb = grid1.Children[i] as TextBox;
+                tb.TabIndex = i * (int)Math.Pow(10, i % 3);
+            }
+        }
     }
 }
 
